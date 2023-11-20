@@ -1,0 +1,7 @@
+#Ocultar las carpetas que no tienen index y solo puede acceder a los datos de los end-points.
+Options -Indexes
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?uri=$1 [NC,L,QSA]
