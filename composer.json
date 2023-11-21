@@ -6,14 +6,14 @@
     "autoload": {
         "psr-4": {
             "Joshyba\\Joshymvc\\": "src/",
-            "Joshyba\\Joshymvc\\Bin\\": "src/bin/",
-            "Joshyba\\Joshymvc\\Router\\": "src/router/",
-            "Routes\\": "routes/",
-            "App\\": "app/"
+            "Joshyba\\Joshymvc\\Bin\\": "src/Bin/",
+            "Joshyba\\Joshymvc\\Router\\": "src/Router/",
+            "Routes\\": "Routes/",
+            "App\\": "App/"
         },
         "files": [
-            "src/bin/HelpersPrincipal.php",
-            "src/bin/Roots.php"
+            "src/Bin/HelpersPrincipal.php",
+            "src/Bin/Roots.php"
         ]
     },
     "authors": [
