@@ -13,9 +13,9 @@ class Errores
 
     public static function error($error)
 	{
-		$response = new Response();
+		//$response = new Response();
 		header("Content-Type: text/html");
-		$response->result('',$error);
+		//$response->result('',$error);
 		switch($error)
 		{
 			case 403:

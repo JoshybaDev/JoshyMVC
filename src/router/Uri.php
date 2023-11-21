@@ -35,14 +35,16 @@ class Uri {
     private function functionFromController() {
         $parts = $this->getParts();
         $class = $parts["class"];
+        $classImport = str_replace('\\',DIRECTORY_SEPARATOR,$class);
         $method = $parts["method"];
-        //echo "Uri => functionFromController =>".$class."<br>";
+        //echo "Uri => functionFromController =>".$classImport."<br>";
         //Importamos el controlador...
-        if (!$this->importController($class)) {
+        if (!$this->importController($classImport)) {
             return;
         }
         //Preparar la ejeución...
         $this->parseRequest();
+        //echo "<br>Uri => ---------------=>".$class."<br>";
         $classInstance = new $class();
         $classInstance->setRequest($this->request);
         //Lanzamos el método...
@@ -56,10 +58,12 @@ class Uri {
 
     public function importController($class) {
         $file = PATH_CONTROLLERS . $class . ".php";
+        
         if (!file_exists($file)) {
             throw new \Exception("El controlador ($file) no existe.");
             return false;
         }
+        //echo "Uri => importController ========>".$file;
         require_once $file;
         return true;
     }
@@ -117,11 +121,11 @@ class Uri {
     }
 
     private function formatCamelCase($string) {
-        $parts = preg_split("[-|_]", strtolower($string)); //listar_usuarios. = ["listas", "Usuarios"]
+        $parts = preg_split("[-|_]", ($string)); //listar_usuarios. = ["listas", "Usuarios"]
         $finalString = "";
         $i = 0;
         foreach ($parts as $parts) {
-            $finalString .= ($i = 0) ? strtolower($parts) : ucfirst($parts);
+            $finalString .= ($i = 0) ? ($parts) : ucfirst($parts);
             $i++;
         }
         return $finalString;

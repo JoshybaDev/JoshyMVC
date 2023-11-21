@@ -372,7 +372,7 @@ function CrearArchivo($data, $tipo='log')
 {
     date_default_timezone_set('America/Mexico_City');
     $rutaBase = "log".DIRECTORY_SEPARATOR;
-    $rutaLog = "src".DIRECTORY_SEPARATOR."bin";
+    $rutaLog = "src".DIRECTORY_SEPARATOR."Bin";
     $rutaLog = str_replace($rutaLog,$rutaBase,__DIR__);
     $nameFile = "";
     if ($tipo == 'abono') {
