@@ -12,6 +12,9 @@
             "App\\": "App/"
         },
         "files": [
+		    "App/helpersHTML.php",
+            "App/helpersSystem.php",
+			"App/helpersDb.php",
             "src/Bin/HelpersPrincipal.php",
             "src/Bin/Roots.php"
         ]
