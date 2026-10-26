@@ -13,19 +13,21 @@ class View
     }
     public function render($file,$variables = null)
     {
-
         //Vamos a separar por carpetas
-        #Metodo que funciona seperación con punto pero solo aplica ubna carpeta atras
-        $parts = array();
+        $ruta = "";
         if (strpos($file, "."))
         {
             $methodParts = explode(".", $file);
-            $parts["carpeta"] = $methodParts[0];
-            $parts["file"] = $methodParts[1];
-            $file=$parts["carpeta"].DIRECTORY_SEPARATOR.$parts["file"];
+            $posarchivo = count($methodParts)-1;
+            foreach ($methodParts as $pos => $value) {
+                if($pos != $posarchivo){
+                    $ruta.=$value.DIRECTORY_SEPARATOR;
+                }else{
+                    $ruta.=$value;
+                }
+            }
+            $file=$ruta;
         }
-
-
         $this->variables = $variables;
         $file = PATH_VIEWS.$file;
         //echo "View  => render =>[$file]<";

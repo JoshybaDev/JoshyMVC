@@ -29,20 +29,13 @@ class Crud
         try {
             if (!Conexion::$ConexionError) {
                 $sth = $this->conexion->prepare($sentencia);
-                if ($obj !== null) {
-                    foreach ($obj as $llave => $valor) {
-                        if (empty($valor)) {
-                            $valor = NULL;
-                        }
-                        $sth->bindValue(":$llave", $valor);
-                        #echo '<div class="alert-danger">';
-                        #echo $llave."---".$valor;
-                        #echo '</dvi>';
-                    }
-                }
                 if($sth)
                 {
-                    $result = $sth->execute();
+					if ($obj !== null) {
+						$result = $sth->execute($obj);
+					}else{
+						$result = $sth->execute();
+					}					 
                     $this->FilasAfectadas = $sth->rowCount();
                     if ($result) {
                         if ($regresaalgo) {
@@ -64,7 +57,6 @@ class Crud
                             $errorInfo .= $value;
                         }
                         $this->Error = true;
-                        //$errorInfo=str_replace("<br />","",$errorInfo);
                         $this->MensajeError .= $errorInfo;
                     }                    
                 }
@@ -75,7 +67,6 @@ class Crud
                         $errorInfo .= $value;
                     }
                     $this->Error = true;
-                    //$errorInfo=str_replace("<br />","",$errorInfo);
                     $this->MensajeError .= $errorInfo;
                 }
             } else {

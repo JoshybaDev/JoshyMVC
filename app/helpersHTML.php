@@ -66,4 +66,7 @@ function RetornarAlert($msg,$tipo='success')
     </div>';
     return $cad;
 }
+function ReturnHTMLChecked($value){
+    return $value ? "checked" : "";
+}
 ?>

@@ -11,8 +11,15 @@ ViewRender("front.cierrehead.php");
             <h1>ERROR 403</h1>
             <br>
             <h1>SERVICIO NO DISPONIBLE</h1>
+            <?php
+            $msjerror = getSessionUnaVez("error", $msjerror ?? "");
+            if (strlen($msjerror) > 0) : ?>
+                <div class="alert alert-danger"><?= $msjerror ?></div>
+            <?php
+            endif;
+            ?>
             </p>
-            <a href="<?= UrlTo('/') ?>" class="btn btn-success">Regresar</a>
+            <a href="javascript:history.back()" class="btn btn-success">Regresar</a>
             <br><br>
         </div>
     </div>
