@@ -66,7 +66,24 @@ function RetornarAlert($msg,$tipo='success')
     </div>';
     return $cad;
 }
+
 function ReturnHTMLChecked($value){
     return $value ? "checked" : "";
+}
+
+/**
+ * Undocumented function
+ *
+ * @param [type] $msg
+ * @param string $tipo success danger warning primary
+ * @return void
+ */
+function acortarTitulo($text,$min=26)
+{
+    $cad = "";
+    $largoNuevo = $min - 3;
+    $text = substr($text,0,$largoNuevo );
+    $cad=$text."...";
+    return $cad;
 }
 ?>

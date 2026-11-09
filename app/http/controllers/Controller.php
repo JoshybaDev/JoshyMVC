@@ -19,7 +19,7 @@ class Controller
         {
             $this->view = new View();
         }
-        if(!Conexion::$ConexionError)
+        if(!Conexion::$conexionError)
         return $this->view->render($file,$variables);
     }
 

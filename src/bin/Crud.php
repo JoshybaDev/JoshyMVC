@@ -27,7 +27,7 @@ class Crud
     public function ejecutarProcedimiento($sentencia, $obj = null, $regresaalgo = true,$tipoArray=false)
     {
         try {
-            if (!Conexion::$ConexionError) {
+            if (!Conexion::$conexionError) {
                 $sth = $this->conexion->prepare($sentencia);
                 if($sth)
                 {
@@ -93,7 +93,7 @@ class Crud
     public function ejecutarDirecto($sql)
     {
         try {
-            if (!Conexion::$ConexionError) {
+            if (!Conexion::$conexionError) {
                 $exito = $this->conexion->query($sql);
                 if ($exito == false) {
                     $this->Error = true;

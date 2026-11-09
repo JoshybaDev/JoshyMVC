@@ -50,9 +50,9 @@ function IsRoute($ruta)
 {
     return Route::$xRuta == $ruta;
 }
-function EsDebug()
+function EsDebug() //Añadir lectura de env
 {
-    return true;
+    return $_ENV['DEBUG'];
 }
 function SetError($error = 404)
 {
@@ -496,4 +496,9 @@ function eliminar_acentos($cadena)
 function IsAjax()
 {
     return (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) and strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest');
+}
+function showVarDum($var){
+    echo "<pre>";
+    var_dump($var);
+    echo "</pre>";
 }

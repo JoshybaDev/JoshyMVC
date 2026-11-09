@@ -24,5 +24,7 @@
             "name": "Ing. Jose Israel Gomez"
         }
     ],
-    "require": {}
+    "require": {
+        "vlucas/phpdotenv": "^5.8"
+    }
 }

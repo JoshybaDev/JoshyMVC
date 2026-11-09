@@ -11,23 +11,26 @@ class Errores
 
     public static function error($error)
 	{
+		if(EsDebug()){
+			return false;
+		}
 		$response = new Response();
 		header("Content-Type: text/html");
 		$response->result('',$error);
 		switch($error)
 		{
 			case 403:
-				return IncludeP::render('errors.403',null);
+				echo IncludeP::render('errors.403',null);
 			break;
 			case 404:
-				return IncludeP::render('errors.404',null);
+				echo IncludeP::render('errors.404',null);
 			break;
 			case 409:
-				return IncludeP::render('errors.409',null);
+				echo IncludeP::render('errors.409',null);
 			break;
 			default:
-				return IncludeP::render('errors.404',null);
+				echo IncludeP::render('errors.404',null);
 		}
-		return false;
+		exit();
 	}
 }

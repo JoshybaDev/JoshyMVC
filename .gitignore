@@ -1,3 +1,5 @@
 /informacion/other/*
-/log/
+/log/log*.*
 /vendor/
+.scannerwork/*
+public/assets/uploads/*
