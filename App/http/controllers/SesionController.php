@@ -8,7 +8,11 @@ class SesionController extends Controller
 {
     public function index(Request $request)
     {
-        # code...
+        echo "Todo Ok, si señor";
+        echo "<hr>";
+        echo "Var dump de un array<br>";
+        $Unarray =["id"=>1,"nombre"=>"Juan"];
+        showVarDum($Unarray);
     }
 }
 
